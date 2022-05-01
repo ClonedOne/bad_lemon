@@ -114,10 +114,18 @@ class TrainFn:
 
     def load(self, path):
         states = torch.load(path)
-        self.net.load_state_dict(states['net'])
-        self.optimizer.load_state_dict(states['optimizer'])
-        if self.scheduler is not None:
+
+        if 'net' in states:
+            self.net.load_state_dict(states['net'])
+        else:
+            self.net.load_state_dict(states)        
+        
+        if 'optimizer' in states:
+            self.optimizer.load_state_dict(states['optimizer'])
+
+        if 'scheduler' in states and self.scheduler is not None:
             self.scheduler.load_state_dict(states['scheduler'])
+
         if 'lime' in states:
             self.lime_mask = states['lime']
 

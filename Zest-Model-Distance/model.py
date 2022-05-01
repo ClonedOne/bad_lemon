@@ -29,6 +29,16 @@ import torch.nn.init as init
 
 from torch.autograd import Variable
 
+
+from cifar10_models_defs import cf_densenet
+from cifar10_models_defs import cf_googlenet
+from cifar10_models_defs import cf_inception
+from cifar10_models_defs import cf_mobilenetv2
+from cifar10_models_defs import cf_resnet 
+from cifar10_models_defs import cf_vgg
+
+
+
 # __all__ = ['ResNet', 'resnet20', 'resnet32', 'resnet44', 'resnet56', 'resnet110', 'resnet1202']
 
 def _weights_init(m):
@@ -134,3 +144,45 @@ def resnet110():
 
 def resnet1202():
     return ResNet(BasicBlock, [200, 200, 200])
+
+
+
+def vgg11_bn():
+    return cf_vgg.vgg11_bn()
+    
+def vgg13_bn():
+    return cf_vgg.vgg13_bn()
+    
+def vgg16_bn():
+    return cf_vgg.vgg16_bn()
+    
+def vgg19_bn():
+    return cf_vgg.vgg19_bn()
+    
+def resnet18():
+    return cf_resnet.resnet18()
+    
+def resnet34():
+    return cf_resnet.resnet34()
+    
+def resnet50():
+    return cf_resnet.resnet50()
+    
+def densenet121():
+    return cf_densenet.densenet121()
+    
+def densenet161():
+    return cf_densenet.densenet161()
+    
+def densenet169():
+    return cf_densenet.densenet169()
+    
+def mobilenet_v2():
+    return cf_mobilenetv2.mobilenet_v2()
+    
+def googlenet():
+    return cf_googlenet.googlenet()
+    
+def inception_v3():
+    return cf_inception.inception_v3()
+    
