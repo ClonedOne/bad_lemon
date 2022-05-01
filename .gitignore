@@ -164,6 +164,6 @@ PyTorch_CIFAR10/
 cifar10_models/
 Zest-Model-Distance/data/
 Zest-Model-Distance/models/
-notebooks/
 data/
 .vscode/
+images/
