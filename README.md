@@ -16,3 +16,29 @@ This information can be used to significantly reduce the operational costs of ge
 
 ## Usage
 
+### Hypothesis 1 
+
+There is a noticeable advantage in trying to transfer adversarial samples computed on similar architectures.
+
+To show this `hypothesis1.py` will slect 100 correct classified test data points for a victim model (`densenet121`) and then generate evasive samples on 5 different proxies, with PGD.
+
+Run the script with `ptyhon hypothesis1.py` and it will produce an output similar to this:
+```
+Evaluating generated samples on the original victim model
+Evaluating samples generated on: vgg11_bn
+Evasion success rate: 0.29000000000000004
+Evaluating samples generated on: resnet18
+Evasion success rate: 0.31000000000000005
+Evaluating samples generated on: resnet50
+Evasion success rate: 0.41000000000000003
+Evaluating samples generated on: densenet161
+Evasion success rate: 0.51
+Evaluating samples generated on: googlenet
+Evasion success rate: 0.10999999999999999
+```
+
+Samples generated on `densenet161` are, as expected, significantly easier to transfer than those generated on different architectures.
+
+### Hypothesis 2
+
+Smaller Zest distances are correlated with higher adversarial transferability.
