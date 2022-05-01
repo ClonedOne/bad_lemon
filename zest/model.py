@@ -30,12 +30,12 @@ import torch.nn.init as init
 from torch.autograd import Variable
 
 
-from cifar10_models_defs import cf_densenet
-from cifar10_models_defs import cf_googlenet
-from cifar10_models_defs import cf_inception
-from cifar10_models_defs import cf_mobilenetv2
-from cifar10_models_defs import cf_resnet 
-from cifar10_models_defs import cf_vgg
+from zest.cifar10_models_defs import cf_densenet
+from zest.cifar10_models_defs import cf_googlenet
+from zest.cifar10_models_defs import cf_inception
+from zest.cifar10_models_defs import cf_mobilenetv2
+from zest.cifar10_models_defs import cf_resnet 
+from zest.cifar10_models_defs import cf_vgg
 
 
 
