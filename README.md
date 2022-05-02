@@ -58,5 +58,6 @@ Distance between densenet121 and googlenet: [2.93570166e+03 3.95697975e+01 3.663
 
 ### Hypothesis 3
 
-Smaller Zest distances are correlated with higher adversarial transferability.
+There is a negative correlation between the Zest distance (between the victim model and proxy model) the transfer rate of adversarial examples. 
 
+Initial confirmation of the hypothesis is shown in `zest/notebooks/correlations.ipynb` based on the results from the previous scripts.
