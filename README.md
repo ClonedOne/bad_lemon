@@ -61,3 +61,22 @@ Distance between densenet121 and googlenet: [2.93570166e+03 3.95697975e+01 3.663
 There is a negative correlation between the Zest distance (between the victim model and proxy model) the transfer rate of adversarial examples. 
 
 Initial confirmation of the hypothesis is shown in `zest/notebooks/correlations.ipynb` based on the results from the previous scripts.
+
+To run a larger scale experiment use `python hypothesis3.py`. For instance in a test scenario where the victim model is a `densenet161` and the lisf of proxies is:
+```
+proxies = [
+    'vgg11_bn',
+    'vgg13_bn',
+    'vgg16_bn',
+    'vgg19_bn',
+    'resnet18',
+    'resnet34',
+    'resnet50',
+    'densenet121',
+    'densenet169',
+    'mobilenet_v2',
+    'googlenet',
+    'inception_v3'
+]
+```
+The code will identify `densenet121` as the closesest for the cosine distance metric and `densenet169` as the closest under l-inf distance. Crafting the adversarial examples for each model will result in `densenet169` being the best proxy and `densenet121` the second best, with 52% and 42% transfer success respectively.
