@@ -4,7 +4,7 @@ import torch
 import copy
 import torchvision
 from lime.wrappers.scikit_image import SegmentationAlgorithm
-from utils import mean_std_to_array
+from zest.utils import mean_std_to_array
 
 
 def get_reference_dataset(lime_data, ref_data, segment, fudged_image):

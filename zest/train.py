@@ -2,9 +2,9 @@ import numpy as np
 import os
 import torch
 import torch.optim as optim
-import utils
-import model
-import lime_pytorch
+import zest.utils as utils
+import zest.model as model
+import zest.lime_pytorch as lime_pytorch
 
 
 seed = 0

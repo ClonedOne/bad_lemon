@@ -41,5 +41,22 @@ Samples generated on `densenet161` are, as expected, significantly easier to tra
 
 ### Hypothesis 2
 
+Models of a similar architecture have smaller Zest distances.
+
+Run the script with `ptyhon hypothesis2.py` and it will produce an output similar to this:
+```
+Distance between densenet121 and vgg11_bn: [4.10939111e+03 4.79590988e+01 4.05846262e+00 2.84967363e-01]
+...
+Distance between densenet121 and resnet18: [2.55898926e+03 3.33659401e+01 3.14345694e+00 1.79761827e-01]
+...
+Distance between densenet121 and resnet50: [2.26656641e+03 3.10252571e+01 2.91031361e+00 1.45045757e-01]
+...
+Distance between densenet121 and densenet161: [1.96612476e+03 2.82449207e+01 2.52590132e+00 1.40515983e-01]
+...
+Distance between densenet121 and googlenet: [2.93570166e+03 3.95697975e+01 3.66321969e+00 2.62254894e-01]
+```
+
+### Hypothesis 3
+
 Smaller Zest distances are correlated with higher adversarial transferability.
 
