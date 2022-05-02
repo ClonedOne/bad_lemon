@@ -24,16 +24,16 @@ from zest import train
 # Experiment settings
 dataset = 'CIFAR10'
 base_model_path = '/home/giorgioseveri/projects/advml/lemon/cifar10_models/state_dicts/{}.pt'
-victim_model = 'densenet161'
+victim_model = 'vgg19_bn'
 proxies = [
     'vgg11_bn',
     'vgg13_bn',
     'vgg16_bn',
-    'vgg19_bn',
     'resnet18',
     'resnet34',
     'resnet50',
     'densenet121',
+    'densenet161',
     'densenet169',
     'mobilenet_v2',
     'googlenet',

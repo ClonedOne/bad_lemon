@@ -2,7 +2,7 @@
 This module contains the experiment to test the first hypothesis:
     Given a number of different classification models trained on the same data,
     and having selected one as the victim, the adversarial examples computed
-    on the other models will trasnfer to the victim model with different 
+    on the other models will transfer to the victim model with different 
     success rates. In particular, we expect the models of a similar architecture
     to produce adversarial examples that transfer more easily.
 """
