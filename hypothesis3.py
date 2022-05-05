@@ -7,7 +7,6 @@ This module contains code to test if the third hypothesis holds:
 
 import os
 import gc
-from socket import AF_X25
 import torch
 import numpy as np
 
