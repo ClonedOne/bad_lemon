@@ -1,8 +1,6 @@
 """
-This module contains code to test if the third hypothesis holds:
-    Given a number of different classification models, trained on the same data,
-    and having selected one as the victim, there is negative correlation between the Zest
-    distance and the transfer rate of the adversarial examples.
+This module contains code to compute the Zest distance across 13
+different pre-trained CIFAR-10 models.
 """
 
 import os
