@@ -11,9 +11,6 @@ import torch
 import numpy as np
 
 from tqdm.auto import tqdm
-from datetime import datetime
-from art.estimators.classification import PyTorchClassifier
-from art.attacks.evasion import ProjectedGradientDescentPyTorch
 
 from zest import utils
 from zest import model
@@ -44,18 +41,21 @@ dist = ['1', '2', 'inf', 'cos']
 # Setup
 all_proxies = sorted(all_proxies)
 os.makedirs('results', exist_ok=True)
-distances_file_name = 'distances_all_{}.npy'.format('_'.join(all_proxies))
+distances_file_name = 'distances_{}_all_{}.npy'.format(b_size, '_'.join(all_proxies))
 distances_file = os.path.join('results', distances_file_name)
+lime_data_name = f"{dataset}_{b_size}"
 
 distances = {}
 train_fns = {}
 
+# Compute all LIME representations
 for p in tqdm(all_proxies, desc='Computing representations'):
     p_arch = eval(f"model.{p}")
-    train_fns[p] = train.TrainFn(batch_size=b_size, dataset=dataset, architecture=p_arch)
+    train_fns[p] = train.TrainFn(batch_size=b_size, dataset=dataset, architecture=p_arch, lime_data_name=lime_data_name)
     train_fns[p].load(base_model_path.format(p))
     train_fns[p].lime()
 
+# Calculate distances between all pairs
 for victim_model, train_fn1 in tqdm(train_fns.items(), desc='Evaluating target model'):
     distances[victim_model] = {}
 
