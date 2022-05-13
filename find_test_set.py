@@ -6,18 +6,13 @@ successfully classified by all 13 models.
 """
 
 import os
-import gc
 import torch
 import numpy as np
 
 from tqdm.auto import tqdm
-from datetime import datetime
-from art.estimators.classification import PyTorchClassifier
-from art.attacks.evasion import ProjectedGradientDescentPyTorch
 
 from zest import utils
 from zest import model
-from zest import train
 
 
 # Experiment settings
@@ -42,6 +37,7 @@ all_proxies = sorted(all_proxies)
 b_size = 128
 num_samples = 100
 
+# Utility to load a model from disk
 def load_model(m):
     arch = eval(f"model.{m}")
     net = arch()
