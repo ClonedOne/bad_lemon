@@ -38,8 +38,15 @@ all_proxies = [
 ]
 all_proxies = sorted(all_proxies)
 b_size = 128
-eps = 0.1
-eps_step = 0.02
+
+eps = 0.3
+# eps = 0.1
+# eps = 0.032
+
+eps_step = 0.05
+# eps_step = 0.02
+# eps_step = 0.008
+
 num_random_init = 5
 
 # Change this path to the result file you would like to use
@@ -100,7 +107,7 @@ for p in all_proxies:
     torch.cuda.empty_cache()
 
 # Save the results
-advex_file_name = 'advex_{}.npy'.format('_'.join(all_proxies))
+advex_file_name = 'advex_eps_{}_{}.npy'.format(eps, '_'.join(all_proxies))
 advex_file = os.path.join('results', advex_file_name)
 np.save(advex_file, adv_exs)
 
@@ -130,6 +137,6 @@ for victim in all_proxies:
     }
 
 # Save the results
-transfer_file_name = 'transfer_{}.npy'.format('_'.join(all_proxies))
+transfer_file_name = 'transfer_eps_{}_{}.npy'.format(eps, '_'.join(all_proxies))
 transfer_file = os.path.join('results', transfer_file_name)
 np.save(transfer_file, transfer)
